@@ -1,13 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://njbl02tqbolf"]
+[gd_scene load_steps=7 format=3 uid="uid://njbl02tqbolf"]
 
 [ext_resource type="Script" uid="uid://umlssetbkl84" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://ddccu8is13iuk" path="res://icon.svg" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://hho4g6i1dhr3" path="res://assets/Down Cinnabun.svg" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://doxrjgeeg6a3g" path="res://assets/Down Cinnabun Walk 1.svg" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://c5w1qc0a5rpbx" path="res://assets/Down Cinnabun Walk 2.svg" id="4_hqtel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_i3pqv")
+"texture": ExtResource("3_i3pqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hqtel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hqtel")
 }],
 "loop": true,
 "name": &"default",
@@ -15,14 +23,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sweqy"]
-size = Vector2(117, 116)
+size = Vector2(99, 69)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.8633373, -1.8750024)
+scale = Vector2(0.040927522, 0.04344301)
 sprite_frames = SubResource("SpriteFrames_hqtel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 4.5)
 shape = SubResource("RectangleShape2D_sweqy")
