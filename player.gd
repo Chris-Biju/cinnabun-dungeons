@@ -1,8 +1,17 @@
 extends CharacterBody2D
 
+#movement properties
+@export_group("Movement")
 @export var max_speed := 200
 @export var acceleration := 800
 @export var friction := 1800
+
+#health
+@export_group("Health")
+@export var max_health := 100
+
+
+var current_health := max_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
