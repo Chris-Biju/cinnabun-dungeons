@@ -9,7 +9,7 @@ extends CharacterBody2D
 #health
 @export_group("Health")
 @export var max_health := 100
-
+var current_weapon
 var direction = "down"
 
 var current_health := max_health
@@ -21,7 +21,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("attack"):
+		print("hi")
+		current_weapon.attack()
 
 func _physics_process(delta: float) -> void:
 	#var direction = "down"
