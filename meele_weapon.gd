@@ -20,7 +20,7 @@ func attack():
 		$Hitbox.monitoring = true
 		$HitboxTimer.start(attackHitboxTime)
 		$AttackTimer.start(attackSpeed)
-		$AnimatedSprite2D.play("attack")
+		$AnimationPlayer.play("attack")
 
 func _on_hitbox_timer_timeout():
 	$Hitbox.monitoring = false

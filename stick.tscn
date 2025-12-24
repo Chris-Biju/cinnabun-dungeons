@@ -1,41 +1,159 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctpspd8sddi7s"]
+[gd_scene load_steps=7 format=3 uid="uid://ctpspd8sddi7s"]
 
 [ext_resource type="PackedScene" uid="uid://dwkfsfeawdivt" path="res://meele_weapon.tscn" id="1_w10rv"]
-[ext_resource type="Texture2D" uid="uid://cl1m6twib0g8s" path="res://weapon assets/stick/Stick Left.svg" id="3_8bscg"]
 [ext_resource type="Texture2D" uid="uid://bgki723756xg3" path="res://weapon assets/stick/Stick Up.svg" id="5_8jl63"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wh1ma"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_8jl63")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_8bscg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_8jl63")
-}],
-"loop": false,
-"name": &"attack",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdf2q"]
-size = Vector2(8.067377, 219.85995)
+size = Vector2(8.067377, 220.92207)
+
+[sub_resource type="Animation" id="Animation_1hssm"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(-136.66666, -0.2, 0, 0.2, 0, -136.66666, -0.06666667, 0, 0, 0, -136.66666, -0.008333336, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.35, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(806.6666, -0.2, 0, 0.2, 0, 806.6666, -0.06666667, 0, 0, 0, 806.6666, -0.008333336, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.35, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(0, -0.2, 0, 0.2, 0, 0.7853982, -0.06666667, -0.13089971, 0, 0, 0, -0.008333336, 0.1308997, 0, 0),
+"times": PackedFloat32Array(0, 0.35, 0.4)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1.9073486e-05, 0), Vector2(520, 356.66666), Vector2(20.000038, 6.6666565)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.7853982, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0algd"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-136.66666, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(806.6666, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1.9073486e-05, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rp7ts"]
+_data = {
+&"RESET": SubResource("Animation_0algd"),
+&"attack": SubResource("Animation_1hssm")
+}
 
 [node name="Stick" instance=ExtResource("1_w10rv")]
 position = Vector2(500, 300)
 scale = Vector2(0.3, 0.3)
-attackSpeed = 0.1
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_wh1ma")
-animation = &"attack"
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-136.66666, 806.6666)
+texture = ExtResource("5_8jl63")
+centered = false
+offset = Vector2(-50, -1600)
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2(-1.9073486e-05, 0)
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(-84, 5.4999795)
+position = Vector2(-84, 9.333252)
 scale = Vector2(22.56, 7.218231)
 shape = SubResource("RectangleShape2D_mdf2q")
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_rp7ts")
+}
 
 [connection signal="timeout" from="HitboxTimer" to="." method="_on_hitbox_timer_timeout"]
