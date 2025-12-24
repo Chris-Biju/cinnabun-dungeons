@@ -27,10 +27,14 @@ func _physics_process(delta: float) -> void:
 	if(input_vector.length() > 0):
 		input_vector = input_vector.normalized()
 	if (input_vector != Vector2.ZERO):
-		if(Input.get_action_strength("down") - Input.get_action_strength("up") < 0):
+		if(Input.get_action_strength("down") - Input.get_action_strength("up") < 0): #check up
 			$AnimatedPlayer.play("up_walk")
-		else:
-			$AnimatedPlayer.play("down_walk")
+		elif(Input.get_action_strength("down") - Input.get_action_strength("up") > 0): # check down
+			$AnimatedPlayer.play("down_walk") 
+		if(Input.get_action_strength("right") - Input.get_action_strength("left") < 0): #check right
+			$AnimatedPlayer.play("right_walk")
+		elif(Input.get_action_strength("right") - Input.get_action_strength("left") > 0): #check left
+			$AnimatedPlayer.play("left_walk")
 		velocity = velocity.move_toward(input_vector * max_speed, acceleration * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
