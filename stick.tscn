@@ -1,28 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctpspd8sddi7s"]
+[gd_scene load_steps=6 format=3 uid="uid://ctpspd8sddi7s"]
 
 [ext_resource type="PackedScene" uid="uid://dwkfsfeawdivt" path="res://meele_weapon.tscn" id="1_w10rv"]
-[ext_resource type="Texture2D" uid="uid://c5pv1qqaf86o" path="res://weapon assets/stick/Stick Down.svg" id="2_v6haj"]
 [ext_resource type="Texture2D" uid="uid://cl1m6twib0g8s" path="res://weapon assets/stick/Stick Left.svg" id="3_8bscg"]
-[ext_resource type="Texture2D" uid="uid://b7jq2ufibgwmu" path="res://weapon assets/stick/Stick Right.svg" id="4_bva54"]
 [ext_resource type="Texture2D" uid="uid://bgki723756xg3" path="res://weapon assets/stick/Stick Up.svg" id="5_8jl63"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wh1ma"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_v6haj")
+"texture": ExtResource("5_8jl63")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_8bscg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_bva54")
-}, {
-"duration": 1.0,
 "texture": ExtResource("5_8jl63")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"attack",
 "speed": 5.0
 }]
 
@@ -30,9 +25,13 @@ animations = [{
 size = Vector2(8.067377, 219.85995)
 
 [node name="Stick" instance=ExtResource("1_w10rv")]
+position = Vector2(500, 300)
+scale = Vector2(0.3, 0.3)
+attackSpeed = 0.1
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_wh1ma")
+animation = &"attack"
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(-84, 5.4999795)
