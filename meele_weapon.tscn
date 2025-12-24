@@ -5,6 +5,8 @@
 [node name="MeeleWeapon" type="Node2D"]
 script = ExtResource("1_tvwfs")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -16,5 +18,3 @@ one_shot = true
 
 [node name="HitboxTimer" type="Timer" parent="."]
 one_shot = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
