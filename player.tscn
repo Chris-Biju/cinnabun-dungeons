@@ -18,6 +18,14 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_hqtel")
+}],
+"loop": true,
+"name": &"down_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_i3pqv")
 }, {
 "duration": 1.0,
@@ -32,10 +40,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hqtel")
+"texture": ExtResource("6_bwjto")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"left_idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -54,6 +62,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("9_op7ga")
+}],
+"loop": true,
+"name": &"right_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_u1c27")
 }, {
 "duration": 1.0,
@@ -64,6 +80,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"right_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1jxqw")
+}],
+"loop": true,
+"name": &"up_idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -91,7 +115,7 @@ script = ExtResource("1_onrkg")
 position = Vector2(0, 4)
 scale = Vector2(0.037, 0.04)
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"left_walk"
+animation = &"up_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 4.5)
