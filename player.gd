@@ -23,7 +23,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		print("hi")
-		current_weapon.attack()
+		#current_weapon.attack()
 
 func _physics_process(delta: float) -> void:
 	#var direction = "down"
