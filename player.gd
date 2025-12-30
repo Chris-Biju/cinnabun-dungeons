@@ -16,33 +16,32 @@ var current_health := max_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	current_weapon = $Marker2D/Weapon
+	print(current_weapon)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("attack"):
-		print("hi")
-		#current_weapon.attack()
+		current_weapon.attack(direction)
 
 func _physics_process(delta: float) -> void:
 	#var direction = "down"
 	var input_vector = Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"), Input.get_action_strength("down") - Input.get_action_strength("up"))
+	direction = update_direction(input_vector)
 	if(input_vector.length() > 0):
 		input_vector = input_vector.normalized()
+	
 	if (input_vector != Vector2.ZERO):
-		if(Input.get_action_strength("down") - Input.get_action_strength("up") < 0): #check up
+		if(direction == "up"): #check up
 			$AnimatedPlayer.play("up_walk")
-			direction = "up"
-		elif(Input.get_action_strength("down") - Input.get_action_strength("up") > 0): # check down
+		if(direction == "down"): # check down
 			$AnimatedPlayer.play("down_walk") 
-			direction = "down"
-		elif(Input.get_action_strength("right") - Input.get_action_strength("left") < 0): #check right
+		if(direction == "right"): #check right
 			$AnimatedPlayer.play("right_walk")
-			direction = "right"
-		elif(Input.get_action_strength("right") - Input.get_action_strength("left") > 0): #check left
+		if(direction == "left"): #check left
 			$AnimatedPlayer.play("left_walk")
-			direction = "left"
 		velocity = velocity.move_toward(input_vector * max_speed, acceleration * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
@@ -56,3 +55,15 @@ func _physics_process(delta: float) -> void:
 		else:
 			$AnimatedPlayer.play("up_idle")
 	move_and_slide()
+
+func update_direction(dir):
+	if abs(dir.x) > abs(dir.y):
+		if dir.x > 0:
+			return "right"
+		else:
+			return "left"
+	else:
+		if dir.y < 0:
+			return "up"
+		else:
+			return "down"

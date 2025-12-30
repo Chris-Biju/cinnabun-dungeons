@@ -1,49 +1,58 @@
 extends CharacterBody2D
 
 
-@export var max_speed := 300.0
+@export var max_speed := 100.0
 @export var attack_speed := 1
-@export var health := 10
-@export var damge := 2
+@export var max_health := 10
+@export var attack_damage := 2
 
 var player : Node2D = null
+var player_in_range := false
+var health
 
+func _ready():
+	health = max_health
 
-func _physics_process(delta: float) -> void:
-	if player:
-		move_toward_player(player.global_position)
+func _physics_process(delta: float) -> void: 
+	if player_in_range:
+		var dir = player.global_position - global_position
+		update_direction(dir)
+		velocity = (player.global_position - global_position).normalized() * max_speed
+	else:
+		velocity = Vector2.ZERO
 	move_and_slide()
 
-#life/death
-func die():
-	queue_free()
-
-#player detection
-func _on_DetectionArea_body_entered(body):
+func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player = body
+		player_in_range = true
 
-func _on_DetectionArea_body_exited(body):
-	if(body == player):
-		body = null
 
-#movement
-func move_toward_player(target: Vector2):
-	velocity = (target - global_position).normalized() * max_speed
-	move_and_slide()
-	
-#direction
-func update_direction():
-	if(player.global_position.y < global_position.y):
-		$AnimatedSprite2D.play("up")
-	elif(player.global_position.y > global_position.y):
-		$AnimatedSprite2D.play("down")
-	elif(player.global_position.x < global_position.x):
-		$AnimatedSprite2D.play("left")
+func _on_detection_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		player = null
+		player_in_range = false
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print(area.damage)
+	if area.is_in_group("Attack"):
+		print("ThAT HuRTS")
+		take_damage(area.damage)
+
+func take_damage(damage):
+	health -= damage
+	print(health)
+	if health <= 0:
+		queue_free()
+
+func update_direction(dir):
+	if abs(dir.x) > abs(dir.y):
+		if dir.x > 0:
+			$AnimatedSprite2D.play("right")
+		else:
+			$AnimatedSprite2D.play("left")
 	else:
-		$AnimatedSprite2D.play("right")
-
-#damage detection
-func _on_Hurtbox_body_entered(area):
-	if area.is_in_group("player_attack"):
-		health -= area.damage
+		if dir.y < 0:
+			$AnimatedSprite2D.play("up")
+		else:
+			$AnimatedSprite2D.play("down")

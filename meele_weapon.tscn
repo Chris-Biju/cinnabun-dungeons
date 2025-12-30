@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwkfsfeawdivt"]
+[gd_scene load_steps=3 format=3 uid="uid://dwkfsfeawdivt"]
 
 [ext_resource type="Script" uid="uid://dxpf55is8yex0" path="res://meele_weapon.gd" id="1_tvwfs"]
+[ext_resource type="Script" uid="uid://bttk5rbx4qp1d" path="res://hitbox.gd" id="2_n7tti"]
 
 [node name="MeeleWeapon" type="Node2D"]
 script = ExtResource("1_tvwfs")
@@ -10,6 +11,7 @@ script = ExtResource("1_tvwfs")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_n7tti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 

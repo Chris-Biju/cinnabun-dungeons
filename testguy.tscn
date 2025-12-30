@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0a5tf5jlqe73"]
+
+[ext_resource type="PackedScene" uid="uid://c7yn62x4o4w0h" path="res://enemy.tscn" id="1_jmbkf"]
+[ext_resource type="Texture2D" uid="uid://hho4g6i1dhr3" path="res://assets/Down Cinnabun.svg" id="2_1smux"]
+[ext_resource type="Texture2D" uid="uid://ccigtlwsei2nw" path="res://assets/Left Cinnabun.svg" id="3_fnaa5"]
+[ext_resource type="Texture2D" uid="uid://bfkb58ol58spp" path="res://assets/Right Cinnabun.svg" id="4_plikn"]
+[ext_resource type="Texture2D" uid="uid://mm7s3u6hy3xw" path="res://assets/Up Cinnabun (1).svg" id="5_6rvpr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmbkf"]
+size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xo4h7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1smux")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fnaa5")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_plikn")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6rvpr")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1smux"]
+size = Vector2(483, 653)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67ido"]
+radius = 497.69168
+
+[node name="testguy" instance=ExtResource("1_jmbkf")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(211, 102)
+shape = SubResource("RectangleShape2D_jmbkf")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(211, 102)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_xo4h7")
+animation = &"down"
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(198.5, 102.5)
+shape = SubResource("RectangleShape2D_1smux")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(208, 104)
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+position = Vector2(213, 106)
+shape = SubResource("CircleShape2D_67ido")

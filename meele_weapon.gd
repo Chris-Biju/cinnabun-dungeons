@@ -8,19 +8,23 @@ extends Node2D
 var already_hit := []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	self.position = Vector2(10,-30)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("attack"):
-		attack()
+	pass
 
-func attack():
+func attack(dir):
 	if ($AttackTimer.is_stopped()):
 		$Hitbox.monitoring = true
 		$HitboxTimer.start(attackHitboxTime)
 		$AttackTimer.start(attackSpeed)
-		$AnimationPlayer.play("attack")
+		if(dir == "left"):
+			$AnimationPlayer.play("attack_left")
+		elif(dir == "right"):
+			$AnimationPlayer.play("attack_right")
+		else:
+			$AnimationPlayer.play("attack_up")
 
 func _on_hitbox_timer_timeout():
 	$Hitbox.monitoring = false
@@ -30,6 +34,5 @@ func _on_Hitbox_body_entered(body):
 	if body in already_hit:
 		return
 	else:
-		body.damage()
 		already_hit.append(body)
 		
