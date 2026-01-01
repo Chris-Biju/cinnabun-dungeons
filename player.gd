@@ -12,27 +12,28 @@ extends CharacterBody2D
 var current_weapon
 var direction = "down"
 
-var health := max_health
+var health
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_weapon = $Marker2D/Weapon
+	health = max_health
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	if Input.is_action_just_pressed("attack"):
 		current_weapon.attack(direction)
+	heal()
 
 func _physics_process(delta: float) -> void:
 	#var direction = "down"
 	var input_vector = Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"), Input.get_action_strength("down") - Input.get_action_strength("up"))
-	direction = update_direction(input_vector)
 	if(input_vector.length() > 0):
 		input_vector = input_vector.normalized()
 	
 	if (input_vector != Vector2.ZERO):
+		direction = update_direction(input_vector)
 		if(direction == "up"): #check up
 			$AnimatedPlayer.play("up_walk")
 		if(direction == "down"): # check down
@@ -68,7 +69,12 @@ func update_direction(dir):
 			return "down"
 
 func take_damage(damage):
-	print("OH - A NO, YOU HIT ME")
-	health -= damage
+	health = health - damage
+	
 	if (health <= 0):
 		queue_free()
+
+func heal():
+	if health < 48:
+		await get_tree().create_timer(2).timeout
+		health += 2 

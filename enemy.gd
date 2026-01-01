@@ -9,9 +9,11 @@ extends CharacterBody2D
 var player : Node2D = null
 var player_in_range := false
 var health
+var is_attacking = false
 
 func _ready():
 	health = max_health
+	print(health)
 
 func _physics_process(delta: float) -> void: 
 	if player_in_range:
@@ -58,5 +60,15 @@ func update_direction(dir):
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body == player:
-		print("HEYYYYYYY THERE, IMMA KILL YOU, SLAYYYYYYYYYYYYYYYYYY")
+		is_attacking = true
+		attack_player()
+
+func _on_hitbox_body_exited(body: Node2D) -> void:
+	if body == player:
+		is_attacking = false
+
+func attack_player():
+	while is_attacking and player:
 		player.take_damage(attack_damage)
+		await get_tree().create_timer(attack_speed).timeout
+	is_attacking = false

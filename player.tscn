@@ -115,7 +115,7 @@ script = ExtResource("1_onrkg")
 position = Vector2(0, 4)
 scale = Vector2(0.037, 0.04)
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"up_idle"
+animation = &"down_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 4.5)
