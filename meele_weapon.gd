@@ -12,7 +12,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	pass #print($Hitbox.monitoring == true)
+
 
 func attack(dir):
 	if ($AttackTimer.is_stopped()):
@@ -32,7 +33,7 @@ func _on_hitbox_timer_timeout():
 
 func _on_Hitbox_body_entered(body):
 	if body in already_hit:
-		return
+		print("SLAYED")
 	else:
 		already_hit.append(body)
 		

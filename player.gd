@@ -12,12 +12,11 @@ extends CharacterBody2D
 var current_weapon
 var direction = "down"
 
-var current_health := max_health
+var health := max_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_weapon = $Marker2D/Weapon
-	print(current_weapon)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,3 +66,9 @@ func update_direction(dir):
 			return "up"
 		else:
 			return "down"
+
+func take_damage(damage):
+	print("OH - A NO, YOU HIT ME")
+	health -= damage
+	if (health <= 0):
+		queue_free()

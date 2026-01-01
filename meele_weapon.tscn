@@ -10,7 +10,8 @@ script = ExtResource("1_tvwfs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["Attack"]]
+monitoring = false
 script = ExtResource("2_n7tti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

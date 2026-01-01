@@ -6,8 +6,8 @@
 
 [node name="the test" type="Node2D"]
 
-[node name="Player" parent="." groups=["Attack", "Player"] instance=ExtResource("1_pd5oo")]
-position = Vector2(213, 465)
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_pd5oo")]
+position = Vector2(125, 347)
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
 position = Vector2(47, 17)
@@ -17,5 +17,5 @@ gizmo_extents = 9.5
 scale = Vector2(0.05, 0.05)
 
 [node name="testguy" parent="." instance=ExtResource("3_dawy8")]
-position = Vector2(529, 131)
+position = Vector2(774, 333)
 attack_speed = 10

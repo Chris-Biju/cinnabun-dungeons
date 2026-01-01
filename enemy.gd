@@ -34,10 +34,8 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 		player_in_range = false
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	print(area.damage)
 	if area.is_in_group("Attack"):
-		print("ThAT HuRTS")
-		take_damage(area.damage)
+		take_damage(area.get_damage())
 
 func take_damage(damage):
 	health -= damage
@@ -56,3 +54,9 @@ func update_direction(dir):
 			$AnimatedSprite2D.play("up")
 		else:
 			$AnimatedSprite2D.play("down")
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body == player:
+		print("HEYYYYYYY THERE, IMMA KILL YOU, SLAYYYYYYYYYYYYYYYYYY")
+		player.take_damage(attack_damage)
