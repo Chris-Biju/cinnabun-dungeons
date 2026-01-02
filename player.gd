@@ -24,7 +24,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		current_weapon.attack(direction)
-	heal()
 
 func _physics_process(delta: float) -> void:
 	#var direction = "down"
@@ -70,11 +69,10 @@ func update_direction(dir):
 
 func take_damage(damage):
 	health = health - damage
-	
 	if (health <= 0):
 		queue_free()
 
-func heal():
-	if health < 48:
-		await get_tree().create_timer(2).timeout
-		health += 2 
+
+func _on_regen_timer_timeout() -> void:
+	if health < 40:
+		health += 1
