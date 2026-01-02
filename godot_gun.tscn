@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci42r6ydexf35"]
+
+[ext_resource type="PackedScene" uid="uid://c8pa3foo25isf" path="res://ranged_weapon.tscn" id="1_vvujt"]
+[ext_resource type="Texture2D" uid="uid://ddccu8is13iuk" path="res://icon.svg" id="2_fash0"]
+[ext_resource type="Texture2D" uid="uid://bdo5rfe3t8p2e" path="res://icon2.svg" id="3_fash0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cl080"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fash0")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fash0")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fash0")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fash0")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="GodotGun" instance=ExtResource("1_vvujt")]
+position = Vector2(192, 272)
+projectile_speed = 100000000000000000
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+rotation = 1.5707964
+scale = Vector2(0.3203125, 1)
+sprite_frames = SubResource("SpriteFrames_cl080")
+animation = &"down"
+
+[node name="Muzzle" parent="." index="1"]
+position = Vector2(64, 0)
