@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0fyagsxmtc4l"]
+[gd_scene load_steps=8 format=3 uid="uid://c0fyagsxmtc4l"]
 
 [ext_resource type="PackedScene" uid="uid://hhhlngk33wnb" path="res://player.tscn" id="1_pd5oo"]
-[ext_resource type="PackedScene" uid="uid://ctpspd8sddi7s" path="res://stick.tscn" id="2_dawy8"]
 [ext_resource type="Script" uid="uid://dgjbgeqnhxbdd" path="res://marker_2d.gd" id="2_nimu7"]
 [ext_resource type="Script" uid="uid://ckeaskkjaedyj" path="res://label.gd" id="2_xfa66"]
 [ext_resource type="PackedScene" uid="uid://c0a5tf5jlqe73" path="res://testguy.tscn" id="3_dawy8"]
+[ext_resource type="PackedScene" uid="uid://ci42r6ydexf35" path="res://godot_gun.tscn" id="4_xfa66"]
+[ext_resource type="PackedScene" uid="uid://bx0wre534igbv" path="res://godot_bullet.tscn" id="5_7y2on"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7y2on"]
 
@@ -21,14 +22,19 @@ offset_right = -443.0
 offset_bottom = -265.0
 label_settings = SubResource("LabelSettings_7y2on")
 script = ExtResource("2_xfa66")
+metadata/_edit_use_anchors_ = true
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
 position = Vector2(-1, 24)
 gizmo_extents = 9.5
 script = ExtResource("2_nimu7")
 
-[node name="Weapon" parent="Player/Marker2D" groups=["Attack"] instance=ExtResource("2_dawy8")]
-scale = Vector2(0.05, 0.05)
+[node name="Weapon" parent="Player/Marker2D" instance=ExtResource("4_xfa66")]
+position = Vector2(0, 0)
+damage = 10
+fire_rate = 0.5
+projectile_speed = 1000
+projectile_scene = ExtResource("5_7y2on")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -36,16 +42,34 @@ scale = Vector2(0.05, 0.05)
 wait_time = 2.0
 autostart = true
 
-[node name="testguy" parent="." instance=ExtResource("3_dawy8")]
-position = Vector2(567, 365)
+[node name="testguy" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(552, 365)
 
-[node name="testguy2" parent="." instance=ExtResource("3_dawy8")]
-position = Vector2(-349, 327)
+[node name="testguy2" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(-365, 327)
 
-[node name="testguy3" parent="." instance=ExtResource("3_dawy8")]
-position = Vector2(55, -138)
+[node name="testguy3" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(55, -82)
 
-[node name="testguy4" parent="." instance=ExtResource("3_dawy8")]
-position = Vector2(124, 754)
+[node name="testguy4" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(140, 745)
+
+[node name="testguy5" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(-107, 536)
+
+[node name="testguy6" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(502, 227)
+
+[node name="testguy7" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(341, 551)
+
+[node name="testguy8" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(-157, 114)
+
+[node name="testguy9" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(508, 558)
+
+[node name="testguy10" parent="." groups=["Enemy"] instance=ExtResource("3_dawy8")]
+position = Vector2(405, 24)
 
 [connection signal="timeout" from="Player/RegenTimer" to="Player" method="_on_regen_timer_timeout"]

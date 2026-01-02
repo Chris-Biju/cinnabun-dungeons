@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx0wre534igbv"]
+[gd_scene load_steps=3 format=3 uid="uid://bx0wre534igbv"]
 
 [ext_resource type="PackedScene" uid="uid://cewcqyareurag" path="res://projectile.tscn" id="1_67u2c"]
 
-[node name="GodotBullet" instance=ExtResource("1_67u2c")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67u2c"]
+size = Vector2(63, 60)
+
+[node name="GodotBullet" groups=["Attack"] instance=ExtResource("1_67u2c")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_67u2c")

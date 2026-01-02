@@ -96,12 +96,18 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_xo4h7")
 animation = &"up"
 
+[node name="Hurtbox" parent="." index="2" groups=["Enemy", "EnemyHurtbox"]]
+
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("RectangleShape2D_1smux")
+
+[node name="Hitbox" parent="." index="3" groups=["Enemy"]]
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 scale = Vector2(0.72000134, 0.72000134)
 shape = SubResource("RectangleShape2D_25m57")
+
+[node name="DetectionArea" parent="." index="4" groups=["Enemy"]]
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource("CircleShape2D_67ido")

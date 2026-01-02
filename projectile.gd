@@ -22,6 +22,10 @@ func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemy"):
-		area.take_damage()
-	queue_free()
+	if not area.is_in_group("Enemy"):
+		queue_free()
+	if area.is_in_group("EnemyHurtbox"):
+		queue_free()
+
+func get_damage():
+	return damage

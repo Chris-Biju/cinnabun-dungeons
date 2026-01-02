@@ -13,24 +13,22 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$AnimatedSprite2D.play(get_dir())
-	if Input.is_action_just_pressed("kill"):
-		attack()
 
 #cooldown
 func can_attack():
 	return $AttackTimer.is_stopped()
 
 #attack
-func attack():
+func attack(direction):
 	if can_attack():
-		spawn_projectile()
+		spawn_projectile((get_global_mouse_position() - global_position).normalized())
 		$AttackTimer.start(fire_rate)
 
 #projectile spawn
-func spawn_projectile():
+func spawn_projectile(dir):
 	var projectile = projectile_scene.instantiate()
 	projectile.global_position = $Muzzle.global_position
-	projectile.setup((get_global_mouse_position() - global_position).normalized(), projectile_speed, damage)
+	projectile.setup(dir, projectile_speed, damage)
 	get_tree().current_scene.add_child(projectile)
 
 func get_dir():

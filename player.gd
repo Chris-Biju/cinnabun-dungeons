@@ -74,5 +74,5 @@ func take_damage(damage):
 
 
 func _on_regen_timer_timeout() -> void:
-	if health < 40:
+	if health < 50 and current_weapon.get_node("AttackTimer").is_stopped:
 		health += 1

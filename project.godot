@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 [global_group]
 
 Attack=""
+Enemy=""
+EnemyHurtbox=""
 
 [input]
 
