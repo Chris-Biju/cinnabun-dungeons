@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://civt3sqxrjpfo"]
+
+[ext_resource type="PackedScene" uid="uid://c7yn62x4o4w0h" path="res://enemy.tscn" id="1_ng8r4"]
+[ext_resource type="Texture2D" uid="uid://degct7hjhjcbc" path="res://Milk/Milk Down 1.svg" id="2_lhjq6"]
+[ext_resource type="Texture2D" uid="uid://cktodl5crtybo" path="res://Milk/Milk Down 2.svg" id="3_4b2ns"]
+[ext_resource type="Texture2D" uid="uid://c44sxam8g38wq" path="res://Milk/Milk Left 1.svg" id="4_qoymk"]
+[ext_resource type="Texture2D" uid="uid://ywsr2hefhpwp" path="res://Milk/Milk Left 2.svg" id="5_p6y7o"]
+[ext_resource type="Texture2D" uid="uid://ig5hu5u33dlr" path="res://Milk/Milk Right 1.svg" id="6_hj5sq"]
+[ext_resource type="Texture2D" uid="uid://b4e5g861u6dhb" path="res://Milk/Milk Right 2.svg" id="7_vhoma"]
+[ext_resource type="Texture2D" uid="uid://bev8oaujf0ncq" path="res://Milk/Milk Up 1.svg" id="8_ljmv0"]
+[ext_resource type="Texture2D" uid="uid://k5n3dxv48ump" path="res://Milk/Milk Up 2.svg" id="9_1gwlp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4d4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lhjq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4b2ns")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qoymk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p6y7o")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hj5sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vhoma")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ljmv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1gwlp")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8qbc"]
+size = Vector2(1029.7119, 2248.4375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56lwh"]
+size = Vector2(1018, 2255)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opwjo"]
+size = Vector2(1023, 2246)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwqi0"]
+radius = 3606.7183
+
+[node name="Milk" instance=ExtResource("1_ng8r4")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_c4d4b")
+animation = &"up"
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(0.9990746, 1)
+shape = SubResource("RectangleShape2D_k8qbc")
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-2, 3.5)
+shape = SubResource("RectangleShape2D_56lwh")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0.5, 8)
+shape = SubResource("RectangleShape2D_opwjo")
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_dwqi0")
