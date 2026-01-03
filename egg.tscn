@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://b2ddofgm54q1g"]
+
+[ext_resource type="PackedScene" uid="uid://c7yn62x4o4w0h" path="res://enemy.tscn" id="1_d5xyp"]
+[ext_resource type="Texture2D" uid="uid://x8kwra2k6hxi" path="res://Egg/Egg Down 1.svg" id="2_bplky"]
+[ext_resource type="Texture2D" uid="uid://jhnr4nmqtagj" path="res://Egg/Egg Down 2.svg" id="3_wr0wj"]
+[ext_resource type="Texture2D" uid="uid://cqwuysjwee06i" path="res://Egg/Egg Left 1.svg" id="4_vjr7t"]
+[ext_resource type="Texture2D" uid="uid://bxc5vpbgudmhj" path="res://Egg/Egg Left 2.svg" id="5_ww1b7"]
+[ext_resource type="Texture2D" uid="uid://qm2pxb4qrlgi" path="res://Egg/Egg Right 1.svg" id="6_ebf4q"]
+[ext_resource type="Texture2D" uid="uid://b0truwusqpn47" path="res://Egg/Egg Right 2.svg" id="7_t1ul0"]
+[ext_resource type="Texture2D" uid="uid://dmqrj727t2vbw" path="res://Egg/Egg Up 1.svg" id="8_n4epj"]
+[ext_resource type="Texture2D" uid="uid://du4sg6wigfbew" path="res://Egg/Egg Up 2.svg" id="9_w46sc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75ds2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bplky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wr0wj")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vjr7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ww1b7")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ebf4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t1ul0")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_n4epj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w46sc")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_st7u8"]
+size = Vector2(950, 943)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5u72"]
+size = Vector2(892, 85.83496)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a5wt"]
+size = Vector2(889, 986)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2vg3"]
+radius = 4433.3276
+
+[node name="Egg" instance=ExtResource("1_d5xyp")]
+attack_speed = 0.5
+max_health = 15.0
+attack_damage = 3.5
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_75ds2")
+animation = &"right"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-6, -31.5)
+scale = Vector2(0.9495877, 1.0587767)
+shape = SubResource("RectangleShape2D_st7u8")
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-4, -35.658234)
+scale = Vector2(0.99248976, 11.658226)
+shape = SubResource("RectangleShape2D_b5u72")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0.5, -33)
+shape = SubResource("RectangleShape2D_2a5wt")
+
+[node name="DetectionArea" parent="." index="4"]
+position = Vector2(3, -7)
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+scale = Vector2(1.1015152, 1.0941541)
+shape = SubResource("CircleShape2D_l2vg3")

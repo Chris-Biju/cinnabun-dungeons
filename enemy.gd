@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 
 @export var max_speed := 100.0
-@export var attack_speed := 1
-@export var max_health := 10
-@export var attack_damage := 2
+@export var attack_speed := 1.0
+@export var max_health := 10.0
+@export var attack_damage := 2.0
 
 var player : Node2D = null
 var player_in_range := false
