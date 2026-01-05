@@ -1,0 +1,121 @@
+[gd_scene load_steps=20 format=3 uid="uid://c0a5tf5jlqe73"]
+
+[ext_resource type="PackedScene" uid="uid://c7yn62x4o4w0h" path="res://enemy.tscn" id="1_jmbkf"]
+[ext_resource type="Texture2D" uid="uid://hho4g6i1dhr3" path="res://assets/Down Cinnabun.svg" id="2_1smux"]
+[ext_resource type="Texture2D" uid="uid://doxrjgeeg6a3g" path="res://assets/Down Cinnabun Walk 1.svg" id="2_25m57"]
+[ext_resource type="Texture2D" uid="uid://ccigtlwsei2nw" path="res://assets/Left Cinnabun.svg" id="3_fnaa5"]
+[ext_resource type="Texture2D" uid="uid://gvn4jbggufhj" path="res://assets/Down Cinnabun Walk 2.svg" id="4_5gtkr"]
+[ext_resource type="Texture2D" uid="uid://bfkb58ol58spp" path="res://assets/Right Cinnabun.svg" id="4_plikn"]
+[ext_resource type="Texture2D" uid="uid://mm7s3u6hy3xw" path="res://assets/Up Cinnabun (1).svg" id="5_6rvpr"]
+[ext_resource type="Texture2D" uid="uid://druwgh8vpx38q" path="res://assets/Left Cinnabun Walk 1.svg" id="5_cifxg"]
+[ext_resource type="Texture2D" uid="uid://bsdjk2wb86jg" path="res://assets/Left Cinnabun Walk 2.svg" id="7_5ma5o"]
+[ext_resource type="Texture2D" uid="uid://bh2gs1viseuip" path="res://assets/Right Cinnabun Walk 1.svg" id="8_7avio"]
+[ext_resource type="Texture2D" uid="uid://dfqnwgcleypxw" path="res://assets/Right Cinnabun Walk 2.svg" id="10_641vq"]
+[ext_resource type="Texture2D" uid="uid://bpp6j4wnkdwa" path="res://assets/Up Cinnabun Walk 1.svg" id="11_o3300"]
+[ext_resource type="Texture2D" uid="uid://cqml7svrc8gxj" path="res://assets/Up Cinnabun Walk 2.svg" id="13_wcln2"]
+[ext_resource type="Script" uid="uid://ckeaskkjaedyj" path="res://label.gd" id="14_5gtkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmbkf"]
+size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xo4h7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_25m57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1smux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5gtkr")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cifxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fnaa5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5ma5o")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7avio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_plikn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_641vq")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_o3300")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6rvpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wcln2")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1smux"]
+size = Vector2(183, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25m57"]
+size = Vector2(182, 179)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67ido"]
+radius = 497.69168
+
+[node name="testguy" instance=ExtResource("1_jmbkf")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_jmbkf")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_xo4h7")
+animation = &"up"
+
+[node name="Hurtbox" parent="." index="2" groups=["Enemy", "EnemyHurtbox"]]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_1smux")
+
+[node name="Hitbox" parent="." index="3" groups=["Enemy"]]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+scale = Vector2(0.72000134, 0.72000134)
+shape = SubResource("RectangleShape2D_25m57")
+
+[node name="DetectionArea" parent="." index="4" groups=["Enemy"]]
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_67ido")
+
+[node name="Label" type="Label" parent="." index="5"]
+offset_left = -18.0
+offset_top = -88.0
+offset_right = 22.0
+offset_bottom = -65.0
+horizontal_alignment = 1
+script = ExtResource("14_5gtkr")

@@ -1,0 +1,280 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2qn0y8c5hs5v"]
+
+[ext_resource type="PackedScene" uid="uid://dwkfsfeawdivt" path="res://meele_weapon.tscn" id="1_1gwcw"]
+[ext_resource type="Texture2D" uid="uid://cfpoi7250kj66" path="res://weapon assets/rolling pin/Rolling Pin Up.svg" id="2_6ic5b"]
+
+[sub_resource type="Animation" id="Animation_uf7lq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-209.99998, 1689.9999)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_dna2p"]
+resource_name = "attack_up"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-209.99998, 1689.9999), Vector2(-209.99998, 1689.9999), Vector2(-209.99998, 1689.9999)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.56, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.80285144, 0.0]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1130, -0.093333334, -188.33334, 0, 0, 0, -0.0066666706, 188.33334, 0, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 660, -0.093333334, -110, 0, 0, 0, -0.0066666706, 110, 0, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.7853982, -0.093333334, -0.1308997, 0, 0, 0, -0.0066666706, 0.13089971, 0, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6)
+}
+
+[sub_resource type="Animation" id="Animation_1gwcw"]
+resource_name = "attack_left"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(-1250, -0.25, 0, 0.25, 0, -1887.7305, -0.093333334, 0, 0.0066666706, 0, -1250, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(380, -0.25, 0, 0.25, 0, 1490.6367, -0.093333334, 0, 0.0066666706, 0, 380, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(-0.7853982, -0.25, 0, 0.25, 0, -1.5707964, -0.093333334, 0, 0.0066666706, 0, -0.7853982, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.56, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-209.99998, 1689.9999), Vector2(-209.99998, 1689.9999), Vector2(-209.99998, 1689.9999)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.56, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.7853981633974483, -1.5707964, -0.7853981633974483]
+}
+
+[sub_resource type="Animation" id="Animation_6ic5b"]
+resource_name = "attack_right"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-209.99998, 1689.9999), Vector2(-209.99998, 1689.9999), Vector2(-209.99998, 1689.9999)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.56, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.7853982, 1.5707964, 0.7853982]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(1130, -0.25, 0, 0.25, 0, 1460, -0.093333334, 0, 0.0066666706, 0, 1130, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(590, -0.25, 0, 0.25, 0, 1890.0002, -0.093333334, 0, 0.0066666706, 0, 590, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0.7853982, -0.25, 0, 0.25, 0, 1.5707964, -0.093333334, 0, 0.0066666706, 0, 0.7853982, -0.10000001, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rppp"]
+_data = {
+&"RESET": SubResource("Animation_uf7lq"),
+&"attack_left": SubResource("Animation_1gwcw"),
+&"attack_right": SubResource("Animation_6ic5b"),
+&"attack_up": SubResource("Animation_dna2p")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1fpg"]
+size = Vector2(400.0003, 3410.003)
+
+[node name="rolling_pin" instance=ExtResource("1_1gwcw")]
+position = Vector2(500, 300)
+scale = Vector2(0.1, 0.1)
+damage = 7
+attackSpeed = 0.6
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_4rppp")
+}
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(-209.99998, 1689.9999)
+texture = ExtResource("2_6ic5b")
+centered = false
+offset = Vector2(0, -3400)
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(29.999756, -19.999878)
+scale = Vector2(0.99999875, 0.99999875)
+shape = SubResource("RectangleShape2D_t1fpg")

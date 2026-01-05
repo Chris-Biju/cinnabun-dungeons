@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwkfsfeawdivt"]
+
+[ext_resource type="Script" uid="uid://dxpf55is8yex0" path="res://meele_weapon.gd" id="1_tvwfs"]
+[ext_resource type="Script" uid="uid://bttk5rbx4qp1d" path="res://hitbox.gd" id="2_n7tti"]
+
+[node name="MeeleWeapon" type="Node2D"]
+script = ExtResource("1_tvwfs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Attack"]]
+monitoring = false
+script = ExtResource("2_n7tti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HitboxTimer" type="Timer" parent="."]
+one_shot = true
