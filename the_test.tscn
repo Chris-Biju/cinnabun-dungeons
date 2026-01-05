@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://wshy8k3lr0dr"]
+[gd_scene load_steps=8 format=3 uid="uid://bne066eaa6eft"]
 
 [ext_resource type="PackedScene" path="res://player.tscn" id="1_pd5oo"]
 [ext_resource type="Script" path="res://marker_2d.gd" id="2_nimu7"]
 [ext_resource type="Script" path="res://label.gd" id="2_xfa66"]
-[ext_resource type="PackedScene" path="res://testguy.tscn" id="3_dawy8"]
-[ext_resource type="PackedScene" uid="uid://ijykv10o31t6" path="res://godot_gun.tscn" id="4_xfa66"]
+[ext_resource type="PackedScene" uid="uid://cfjrhy1r25rug" path="res://testguy.tscn" id="3_dawy8"]
+[ext_resource type="PackedScene" path="res://godot_gun.tscn" id="4_xfa66"]
 [ext_resource type="PackedScene" uid="uid://bx0wre534igbv" path="res://godot_bullet.tscn" id="5_7y2on"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7y2on"]

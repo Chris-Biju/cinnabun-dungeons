@@ -6,7 +6,7 @@ var locked := false
 signal entered(direction)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	print("HEY") # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,5 +19,7 @@ func unlock():
 	locked = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and not locked:
+	print("HIaSD")
+	if body.is_in_group("Player") and not locked:
+		print("HI")
 		emit_signal("entered", direction)

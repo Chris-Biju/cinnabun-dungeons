@@ -8,7 +8,7 @@ var enemy_spawners = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass# Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 
 func activate():
 	active = true
+	enemy_spawners = get_tree().get_nodes_in_group("Spawner")
 	$Camera.make_current()
 	spawn_enemies()
 	if is_ambush:
