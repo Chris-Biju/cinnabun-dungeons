@@ -68,6 +68,10 @@ func _process(delta: float) -> void:
 	$ProgressBar.value = (float(health)/float(max_health))*100
 	$ProgressBar/Label.text = str(health) + " / " + str(max_health)
 	$ProgressBar/Label.position = Vector2(($ProgressBar.size.x/2)-$ProgressBar/Label.size.x/2, $ProgressBar.size.y/2 - ($ProgressBar/Label.size.y/2))
+	
+	$XPBar.value = (float(xp)/float(100*lvl))*100
+	$XPBar/Label.text = str(xp) + " / " + str(100*lvl) + " XP"
+	$XPBar/Label.position = Vector2(($XPBar.size.x/2)-$XPBar/Label.size.x/2, $XPBar.size.y/2 - ($XPBar/Label.size.y/2))
 func get_weapon():
 	if(lvl < 5):
 		current_meele = meele_list[0].instantiate()
@@ -141,7 +145,9 @@ func take_damage(damage):
 		$AudioStreamPlayer2D.stream = death_sound
 		$AudioStreamPlayer2D.play()
 		emit_signal("game_over")
-		queue_free()
+		$AudioStreamPlayer2D.stop()
+		get_tree().change_scene_to_file("res://game_over_screen.tscn")
+		
 
 func _on_regen_timer_timeout() -> void:
 	if health < 50 and current_weapon.get_node("AttackTimer").is_stopped:

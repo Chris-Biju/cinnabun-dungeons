@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var damage_sound : AudioStream
 @export var death_sound : AudioStream
 var max_health = 0
-
+var over = false
 var player : Node2D = null
 var player_in_range := false
 var health
@@ -83,5 +83,10 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 func attack_player():
 	while is_attacking and player:
 		player.take_damage(attack_damage)
-		await get_tree().create_timer(attack_speed).timeout
+		if(get_tree() != null):
+			await get_tree().create_timer(attack_speed).timeout
 	is_attacking = false
+
+func _on_game_over():
+	over = true
+	queue_free()

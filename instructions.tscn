@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs5ecsw58y7g4"]
+
+[ext_resource type="Script" uid="uid://banh0jlg6ckdq" path="res://instructions.gd" id="1_7ls63"]
+
+[node name="Instructions" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_7ls63")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 184.0
+offset_right = 720.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 32
+text = "WASD to move
+1 - meele weapon
+2 - ranged weapon
+Left click to attack"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 40.0
+text = "Continue"
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 48.0
+offset_right = 748.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 64
+text = "Instructions:"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -10,7 +10,7 @@ func _ready() -> void:
 func _on_start_button_pressed() -> void:
 	$Credits/AudioStreamPlayer2D.play()
 	await get_tree().create_timer(0.1).timeout
-	get_tree().change_scene_to_file("res://battle_room.tscn")
+	get_tree().change_scene_to_file("res://instructions.gd")
 
 
 func _on_credits_pressed() -> void:
