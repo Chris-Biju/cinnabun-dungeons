@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3 uid="uid://bpydg06wysdsn"]
+
+[ext_resource type="PackedScene" uid="uid://c7yn62x4o4w0h" path="res://base scenes/enemy/enemy.tscn" id="1_2uuu4"]
+[ext_resource type="Texture2D" uid="uid://de3bh6gleejgi" path="res://assets/enemies/cake/Cake Down 1.svg" id="2_xa5qp"]
+[ext_resource type="Texture2D" uid="uid://b4mk7f02wvfan" path="res://assets/enemies/cake/Cake Down 2.svg" id="3_41k12"]
+[ext_resource type="Texture2D" uid="uid://dev6xsqfmra3i" path="res://assets/enemies/cake/Cake Left 1.svg" id="4_4efm1"]
+[ext_resource type="Texture2D" uid="uid://7gdcyiur6d3h" path="res://assets/enemies/cake/Cake Left 2.svg" id="5_fwyu0"]
+[ext_resource type="Texture2D" uid="uid://c0kiqv8xbq4n5" path="res://assets/enemies/cake/Cake Right 1.svg" id="6_ecptg"]
+[ext_resource type="Texture2D" uid="uid://8qnahuw0xbgw" path="res://assets/enemies/cake/Cake Right 2.svg" id="7_of3iv"]
+[ext_resource type="Texture2D" uid="uid://dcmh07k4mulas" path="res://assets/enemies/cake/Cake Up 1.svg" id="8_rsfsk"]
+[ext_resource type="Texture2D" uid="uid://dsyvy2cc8tl4e" path="res://assets/enemies/cake/Cake Up 2.svg" id="9_sm7kc"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_jyc4c"]
+custom_solver_bias = 1.0
+points = PackedVector2Array(-364, -780, 339, -832, 154, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4s7p5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xa5qp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_41k12")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4efm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fwyu0")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ecptg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_of3iv")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_rsfsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sm7kc")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_05j6p"]
+radius = 709.0
+height = 2480.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n6tu4"]
+radius = 583.0
+height = 2318.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bby1j"]
+
+[node name="cake" instance=ExtResource("1_2uuu4")]
+scale = Vector2(0.5, 0.5)
+max_speed = 800.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("ConvexPolygonShape2D_jyc4c")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_4s7p5")
+animation = &"down"
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CapsuleShape2D_05j6p")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CapsuleShape2D_n6tu4")
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+scale = Vector2(500, 500)
+shape = SubResource("CircleShape2D_bby1j")

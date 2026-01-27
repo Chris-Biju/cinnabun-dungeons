@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsu5pu12yl8jo"]
+
+[ext_resource type="PackedScene" uid="uid://cewcqyareurag" path="res://base scenes/projectile/projectile.tscn" id="1_0e7ml"]
+[ext_resource type="Texture2D" uid="uid://ckiyedw6r63gx" path="res://assets/enemies/pepper/Pepper.svg" id="2_o1oeb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3i88"]
+size = Vector2(20, 12)
+
+[node name="PepperProjectile" groups=["Enemy"] instance=ExtResource("1_0e7ml")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_j3i88")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_o1oeb")

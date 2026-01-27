@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://jo83685nnwtl"]
+
+[ext_resource type="PackedScene" uid="uid://cewcqyareurag" path="res://base scenes/projectile/projectile.tscn" id="1_akcps"]
+[ext_resource type="Texture2D" uid="uid://domuqrsdon0je" path="res://assets/enemies/milk/Milk Bullet.svg" id="2_0h78v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ij58g"]
+radius = 23.021729
+
+[node name="MilkProjectile" groups=["Enemy"] instance=ExtResource("1_akcps")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2, 13)
+shape = SubResource("CircleShape2D_ij58g")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_0h78v")

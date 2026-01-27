@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://hqpuux8xw38d"]
+
+[ext_resource type="PackedScene" uid="uid://c8pa3foo25isf" path="res://base scenes/ranged_weapon/ranged_weapon.tscn" id="1_frmve"]
+[ext_resource type="Texture2D" uid="uid://bcvp6ktt6wrov" path="res://assets/weapon assets/ketchup/Ketchup.svg" id="2_3lvoy"]
+[ext_resource type="PackedScene" uid="uid://bmtc3soj024yh" path="res://ranged weapons/ketchup_projectile.tscn" id="2_sd4ds"]
+[ext_resource type="Texture2D" uid="uid://u5yholscke23" path="res://assets/weapon assets/ketchup/Ketchup Down.svg" id="3_wcunv"]
+[ext_resource type="Texture2D" uid="uid://bqg02qq1oooru" path="res://assets/weapon assets/ketchup/Ketchup Left.svg" id="4_3xkib"]
+[ext_resource type="Texture2D" uid="uid://bqhtj1f5gyuxs" path="res://assets/weapon assets/ketchup/Ketchup Right.svg" id="5_cjk11"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sd4ds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wcunv")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3xkib")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cjk11")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3lvoy")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="ketchup" instance=ExtResource("1_frmve")]
+scale = Vector2(0.05, 0.05)
+damage = 15
+fire_rate = 0.5
+projectile_speed = 2500
+projectile_scene = ExtResource("2_sd4ds")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_sd4ds")
+animation = &"down"
+
+[node name="Muzzle" parent="." index="1"]
+position = Vector2(-15, -792)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmtc3soj024yh"]
+
+[ext_resource type="PackedScene" uid="uid://cewcqyareurag" path="res://base scenes/projectile/projectile.tscn" id="1_7kauv"]
+[ext_resource type="Texture2D" uid="uid://cuefts6rljrn" path="res://assets/weapon assets/ketchup/Ketchup Bullet.svg" id="2_aca0k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hy5q"]
+radius = 101.0
+height = 316.0
+
+[node name="ketchup projectile" groups=["Attack"] instance=ExtResource("1_7kauv")]
+
+[node name="CollisionShape2D" parent="." index="0" groups=["Attack"]]
+position = Vector2(4, 2)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CapsuleShape2D_2hy5q")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(-5.000002, 42.000015)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_aca0k")

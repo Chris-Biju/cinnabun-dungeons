@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c63utamrt1rmu"
+path="res://.godot/imported/420622__glaneur-de-sons__sword-swing-b-soft-03.wav-6af12608187c732db8170ec1959bce86.sample"
+
+[deps]
+
+source_file="res://base scenes/meele weapon/420622__glaneur-de-sons__sword-swing-b-soft-03.wav"
+dest_files=["res://.godot/imported/420622__glaneur-de-sons__sword-swing-b-soft-03.wav-6af12608187c732db8170ec1959bce86.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
