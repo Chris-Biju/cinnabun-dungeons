@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8pa3foo25isf"]
+
+[ext_resource type="Script" uid="uid://28l0xqgevh0d" path="res://base scenes/ranged_weapon/ranged_weapon.gd" id="1_yq5js"]
+[ext_resource type="AudioStream" uid="uid://dqqo364icyfm4" path="res://base scenes/ranged_weapon/353034__renne100__slingshot-2.mp3" id="2_jvdre"]
+
+[node name="RangedWeapon" type="Node2D"]
+script = ExtResource("1_yq5js")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Muzzle" type="Marker2D" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_jvdre")

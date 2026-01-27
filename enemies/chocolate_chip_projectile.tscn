@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0xkiflorq6pu"]
+
+[ext_resource type="PackedScene" uid="uid://cewcqyareurag" path="res://base scenes/projectile/projectile.tscn" id="1_f6uqn"]
+[ext_resource type="Texture2D" uid="uid://bxo438r4mffwd" path="res://assets/enemies/muffin/Muffin Chocolate Chip.svg" id="2_gmqtw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1joe5"]
+radius = 20.024984
+
+[node name="ChocolateChipProjectile" groups=["Enemy"] instance=ExtResource("1_f6uqn")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(6, -7)
+shape = SubResource("CircleShape2D_1joe5")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_gmqtw")

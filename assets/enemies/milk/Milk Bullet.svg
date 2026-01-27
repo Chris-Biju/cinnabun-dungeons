@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 3000 4000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-6100,0)">
+        <rect id="Artboard9" x="6100" y="0" width="3000" height="4000" style="fill:none;"/>
+        <g id="Artboard91" serif:id="Artboard9">
+            <ellipse cx="7648" cy="2257" rx="448" ry="434" style="fill:rgb(248,248,248);"/>
+            <path d="M7268,2504C7383.599,2630.119 7571.229,2729.076 7780,2671C8231.24,2539.654 8132.571,2021.823 7896,1890C7836.65,2133.424 7744.985,2486.884 7268,2504Z" style="fill:rgb(227,227,227);"/>
+            <g transform="matrix(1,0,0,1,-5,0)">
+                <path d="M7492,2654C7909.006,2589.811 8077.293,2247.738 8034,2030C8155.402,2205.733 8112.536,2397.428 8016.227,2518.422C7882.138,2686.879 7610.089,2729.492 7492,2654Z" style="fill:rgb(179,179,179);"/>
+            </g>
+        </g>
+    </g>
+</svg>

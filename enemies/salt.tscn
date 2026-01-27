@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://d35ct6i2vv1ex"]
+
+[ext_resource type="PackedScene" uid="uid://c7yn62x4o4w0h" path="res://base scenes/enemy/enemy.tscn" id="1_kycmf"]
+[ext_resource type="Texture2D" uid="uid://b73gnkuua0v54" path="res://assets/enemies/salt/Salt Down.svg" id="2_lincg"]
+[ext_resource type="Texture2D" uid="uid://701e8c5uulv7" path="res://assets/enemies/salt/Salt Left.svg" id="3_jii40"]
+[ext_resource type="Texture2D" uid="uid://bxcpeyjryoiit" path="res://assets/enemies/salt/Salt Right.svg" id="4_at2mx"]
+[ext_resource type="Texture2D" uid="uid://c0m7ok7phfp66" path="res://assets/enemies/salt/Salt Up.svg" id="5_scfwg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x5p5r"]
+radius = 222.17336
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cyrbm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lincg")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jii40")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_at2mx")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_scfwg")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1rnt"]
+radius = 256.04883
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wm21q"]
+radius = 279.71594
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjagv"]
+
+[node name="Salt" instance=ExtResource("1_kycmf")]
+max_speed = 1000.0
+attack_damage = 5
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_x5p5r")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_cyrbm")
+animation = &"down"
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_m1rnt")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_wm21q")
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+scale = Vector2(200, 200)
+shape = SubResource("CircleShape2D_vjagv")

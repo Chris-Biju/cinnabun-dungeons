@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckwaj5xsiymr6"]
+
+[ext_resource type="PackedScene" uid="uid://c7yn62x4o4w0h" path="res://base scenes/enemy/enemy.tscn" id="1_80baw"]
+[ext_resource type="Script" uid="uid://b36pla37ejrir" path="res://base scenes/ranged enemy/ranged_enemy.gd" id="2_80baw"]
+
+[node name="RangedEnemy" instance=ExtResource("1_80baw")]
+script = ExtResource("2_80baw")
+projectile_scene = null
+fire_rate = 1.0
+projectile_speed = 1000

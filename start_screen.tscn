@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://imli35hp2mj"]
+
+[ext_resource type="Texture2D" uid="uid://btgydd5l21axm" path="res://assets/Start.svg" id="1_ncxyx"]
+[ext_resource type="AudioStream" uid="uid://bqt7b60fu3lf2" path="res://cinna.wav" id="3_k1na2"]
+[ext_resource type="AudioStream" uid="uid://mq8xb5178a4w" path="res://788932__mediasaur__key_press.wav" id="3_vdywr"]
+
+[sub_resource type="GDScript" id="GDScript_afy8x"]
+script/source = "extends TextureRect
+
+func _ready() -> void:
+	if $StartButton:
+		$StartButton.position = Vector2((size.x/2)-$StartButton.size.x/2, 300)
+		$Credits.position = Vector2((size.x/2)-$Credits.size.x/2, 350)
+	else:
+		$Text.position = Vector2((size.x/2)-$Text.size.x/2, 300)
+
+func _on_start_button_pressed() -> void:
+	$Credits/AudioStreamPlayer2D.play()
+	await get_tree().create_timer(0.3).timeout
+	get_tree().change_scene_to_file(\"res://battle_room.tscn\")
+
+
+func _on_credits_pressed() -> void:
+	$Credits/AudioStreamPlayer2D.play()
+	await get_tree().create_timer(0.3).timeout
+	get_tree().change_scene_to_file(\"res://credits.tscn\")
+"
+
+[node name="StartScreen" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ncxyx")
+expand_mode = 1
+script = SubResource("GDScript_afy8x")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 300.0
+offset_right = 676.0
+offset_bottom = 320.0
+text = "Start"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StartButton"]
+stream = ExtResource("3_vdywr")
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 20.0
+text = "Credits"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Credits"]
+stream = ExtResource("3_vdywr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k1na2")
+autoplay = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

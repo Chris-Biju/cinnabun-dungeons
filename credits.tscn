@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://btq5i3hg62as1"]
+
+[ext_resource type="Script" uid="uid://bse4rp2g2ghar" path="res://credits.gd" id="1_g4wvt"]
+[ext_resource type="AudioStream" uid="uid://dmsd0wujaimxn" path="res://icing.wav" id="1_nm7lk"]
+[ext_resource type="AudioStream" uid="uid://mq8xb5178a4w" path="res://788932__mediasaur__key_press.wav" id="3_pjc1l"]
+
+[node name="Credits" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14509805, 0.16862746, 0.20392157, 1)
+script = ExtResource("1_g4wvt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 247.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 64
+text = "Credits:"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 104.0
+offset_right = 940.0
+offset_bottom = 446.0
+theme_override_font_sizes/font_size = 12
+text = "All artwork used is original
+Cinnabun Dungeons OST composed by Karthi Malla
+
+This game uses these sounds from freesound.org:
+- Pillow hit Single Hit punch whack by MattRuthSound (https://freesound.org/people/MattRuthSound/sounds/562041/) licensed under CC BY 4.0
+- Splat/Squish 2 by mrickey13 (https://freesound.org/people/mrickey13/sounds/515619/) licensed under CC 0 1.0
+- Sword Swing B - Soft 03.wav by Glaneur de sons (https://freesound.org/people/Glaneur%20de%20sons/sounds/420622/) licensed under CC BY 4.0
+- Metallic Slam (Anvil) by OOF9 (https://freesound.org/people/OOF9/sounds/841804/) licensed under CC 0 1.0
+- Slingshot 2 by renne100 (https://freesound.org/people/renne100/sounds/353034/) licensed under CC 0 1.0
+- Key_Press by Mediasaur (https://freesound.org/people/Mediasaur/sounds/788932/) licensed under CC 0 1.0
+- LevelUp.wav by Kenneth_Cooney (https://freesound.org/people/Kenneth_Cooney/sounds/609335/) licensed under CC 0 1.0
+- Enemy Death (Gaseous) #1 by SilverIllusionist (https://freesound.org/people/SilverIllusionist/sounds/833358/) licensed under CC BY 4.0
+- 8-bit Game Over Sound/Tune by EVRetro (https://freesound.org/people/EVRetro/sounds/533034/) licensed under CC 0 1.0
+- rustling hit effect 02 by rubberduck9999 (https://freesound.org/people/rubberduck9999/sounds/676338/) licensed under CC 0 1.0
+- Walking by markagames (https://freesound.org/people/markagames/sounds/444666/) licensed under CC 0 1.0
+
+Cinnabun Dungeons OST:
+- Cinnabun Dungeons OST - Cinna by toastertoast (https://freesound.org/s/843293/) licensed under CC BY 4.0
+- Cinnabun Dungeons OST - Bun by toastertoast( https://freesound.org/s/843292/) licensed under CC BY 4.0
+- Cinnabun Dungeons OST - Icing by toastertoast(https://freesound.org/s/843294/) licensed under CC BY 4.0
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_nm7lk")
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 16.0
+offset_right = 1128.0
+offset_bottom = 56.0
+text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button"]
+stream = ExtResource("3_pjc1l")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

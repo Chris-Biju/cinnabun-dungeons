@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cop5lnx737snf"]
+
+[ext_resource type="PackedScene" uid="uid://c8pa3foo25isf" path="res://base scenes/ranged_weapon/ranged_weapon.tscn" id="1_npoqn"]
+[ext_resource type="Texture2D" uid="uid://s8cjfpce07qc" path="res://assets/weapon assets/slingshot/Slingshot Down.svg" id="2_717jg"]
+[ext_resource type="PackedScene" uid="uid://dc1gpgy1bfh5o" path="res://ranged weapons/dough_projectile.tscn" id="2_edl7b"]
+[ext_resource type="Texture2D" uid="uid://b7cqmw5u3bw3n" path="res://assets/weapon assets/slingshot/Slingshot Left.svg" id="3_edl7b"]
+[ext_resource type="Texture2D" uid="uid://dwrafkq4pgvws" path="res://assets/weapon assets/slingshot/Slingshot Right.svg" id="4_wjoaj"]
+[ext_resource type="Texture2D" uid="uid://bxu8j5tm4y08c" path="res://assets/weapon assets/slingshot/Slingshot Up.svg" id="5_6v7cg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76h7r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_717jg")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_edl7b")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wjoaj")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6v7cg")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="slingshot" instance=ExtResource("1_npoqn")]
+scale = Vector2(0.1, 0.1)
+damage = 7
+projectile_speed = 2500
+projectile_scene = ExtResource("2_edl7b")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_76h7r")
+animation = &"up"
+
+[node name="Muzzle" parent="." index="1"]
+position = Vector2(14, -179)

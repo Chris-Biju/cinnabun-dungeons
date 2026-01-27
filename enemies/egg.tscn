@@ -1,0 +1,94 @@
+[gd_scene load_steps=15 format=3 uid="uid://bsywb688cxgp0"]
+
+[ext_resource type="PackedScene" uid="uid://c7yn62x4o4w0h" path="res://base scenes/enemy/enemy.tscn" id="1_weg33"]
+[ext_resource type="Texture2D" uid="uid://bgryswtfe2ynt" path="res://assets/enemies/egg/Egg Down 1.svg" id="2_6i20w"]
+[ext_resource type="Texture2D" uid="uid://c0e270bjm5vlq" path="res://assets/enemies/egg/Egg Down 2.svg" id="3_7t1ya"]
+[ext_resource type="Texture2D" uid="uid://bkuhj6ohjf32l" path="res://assets/enemies/egg/Egg Left 1.svg" id="4_0no5v"]
+[ext_resource type="Texture2D" uid="uid://cm3upnnsxx6th" path="res://assets/enemies/egg/Egg Left 2.svg" id="5_5yh2e"]
+[ext_resource type="Texture2D" uid="uid://bjvksd25h25o3" path="res://assets/enemies/egg/Egg Right 1.svg" id="6_dmfw1"]
+[ext_resource type="Texture2D" uid="uid://do02p0ixur22" path="res://assets/enemies/egg/Egg Right 2.svg" id="7_o5ris"]
+[ext_resource type="Texture2D" uid="uid://cig0exbwvnqvv" path="res://assets/enemies/egg/Egg Up 1.svg" id="8_ik6jw"]
+[ext_resource type="Texture2D" uid="uid://nmc5fuweiu45" path="res://assets/enemies/egg/Egg Up 2.svg" id="9_b2nrw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flvhk"]
+radius = 552.0
+height = 1618.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k767t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6i20w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7t1ya")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0no5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5yh2e")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_dmfw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_o5ris")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ik6jw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b2nrw")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7h2ri"]
+radius = 1030.0
+height = 2326.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_meoqu"]
+radius = 800.0
+height = 1904.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xnnvx"]
+
+[node name="egg" instance=ExtResource("1_weg33")]
+scale = Vector2(0.5, 0.5)
+max_speed = 1200.0
+attack_damage = 12
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CapsuleShape2D_flvhk")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_k767t")
+animation = &"down"
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CapsuleShape2D_7h2ri")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CapsuleShape2D_meoqu")
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+scale = Vector2(350, 350)
+shape = SubResource("CircleShape2D_xnnvx")

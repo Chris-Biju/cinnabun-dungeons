@@ -1,0 +1,94 @@
+[gd_scene load_steps=16 format=3 uid="uid://p3nu4hk2q631"]
+
+[ext_resource type="PackedScene" uid="uid://ckwaj5xsiymr6" path="res://base scenes/ranged enemy/ranged_enemy.tscn" id="1_tnnso"]
+[ext_resource type="PackedScene" uid="uid://b0xkiflorq6pu" path="res://enemies/chocolate_chip_projectile.tscn" id="2_8dsix"]
+[ext_resource type="Texture2D" uid="uid://c01re18j1djpw" path="res://assets/enemies/muffin/Muffin Down 1.svg" id="3_8xj57"]
+[ext_resource type="Texture2D" uid="uid://bcu4ar11owlsx" path="res://assets/enemies/muffin/Muffin Down 2.svg" id="4_xtlqh"]
+[ext_resource type="Texture2D" uid="uid://ch6u8pfhql32x" path="res://assets/enemies/muffin/Muffin Left 1.svg" id="5_rky6g"]
+[ext_resource type="Texture2D" uid="uid://bkbbkrrxyqp5u" path="res://assets/enemies/muffin/Muffin Left 2.svg" id="6_mcyfc"]
+[ext_resource type="Texture2D" uid="uid://b0j2we6p873em" path="res://assets/enemies/muffin/Muffin Right 1.svg" id="7_d7g5o"]
+[ext_resource type="Texture2D" uid="uid://b6dryjnj542cf" path="res://assets/enemies/muffin/Muffin Right 2.svg" id="8_ky213"]
+[ext_resource type="Texture2D" uid="uid://xp37fk521vw7" path="res://assets/enemies/muffin/Muffin Up 1.svg" id="9_xvypf"]
+[ext_resource type="Texture2D" uid="uid://7gfxibp5iaac" path="res://assets/enemies/muffin/Muffin Up 2.svg" id="10_p64yb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnij3"]
+size = Vector2(529, 510)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7vc7n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8xj57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xtlqh")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rky6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mcyfc")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_d7g5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ky213")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xvypf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p64yb")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo25f"]
+size = Vector2(754, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwgmd"]
+size = Vector2(714, 683)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlxs0"]
+
+[node name="muffin" instance=ExtResource("1_tnnso")]
+projectile_scene = ExtResource("2_8dsix")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(14.5, -29)
+shape = SubResource("RectangleShape2D_fnij3")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_7vc7n")
+animation = &"down"
+frame_progress = 0.46425793
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_bo25f")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_lwgmd")
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+scale = Vector2(300, 300)
+shape = SubResource("CircleShape2D_vlxs0")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7udkms6tq6jr"
+path="res://.godot/imported/841804__oof9__metallic-slam-anvil.wav-98912f98b356652f5e65cbd70932a5b1.sample"
+
+[deps]
+
+source_file="res://meele weapons/841804__oof9__metallic-slam-anvil.wav"
+dest_files=["res://.godot/imported/841804__oof9__metallic-slam-anvil.wav-98912f98b356652f5e65cbd70932a5b1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
