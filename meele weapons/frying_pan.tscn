@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://nn3jfnw8451h"]
+[gd_scene load_steps=10 format=3 uid="uid://nn3jfnw8451h"]
 
 [ext_resource type="PackedScene" uid="uid://dwkfsfeawdivt" path="res://base scenes/meele weapon/meele_weapon.tscn" id="1_tnuit"]
 [ext_resource type="Texture2D" uid="uid://mllxomnqv8sp" path="res://assets/weapon assets/Frying Pan.svg" id="2_ngy5g"]
+[ext_resource type="AudioStream" uid="uid://c7udkms6tq6jr" path="res://meele weapons/841804__oof9__metallic-slam-anvil.wav" id="3_3rk51"]
 
 [sub_resource type="Animation" id="Animation_3rk51"]
 length = 0.001
@@ -310,3 +311,6 @@ offset = Vector2(-1150, -2051)
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(1.0606575, -114.2229)
 shape = SubResource("RectangleShape2D_y8s70")
+
+[node name="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource("3_3rk51")
